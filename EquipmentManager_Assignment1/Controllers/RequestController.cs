@@ -1,4 +1,5 @@
 ﻿using EquipmentManager_Assignment1.Models;
+using EquipmentManager_Assignment1.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EquipmentManager_Assignment1.Controllers
@@ -7,6 +8,7 @@ namespace EquipmentManager_Assignment1.Controllers
     {
         private static List<Request> requests = new List<Request>();
         private static int id = 1;
+        private static RequestRepository requestRepository= new RequestRepository();
 
         [HttpGet]
         public IActionResult RequestForm()
@@ -21,7 +23,7 @@ namespace EquipmentManager_Assignment1.Controllers
             if (ModelState.IsValid)
             {
                 request.Id = id++;
-                requests.Add(request);
+                requestRepository.AddRequest(request);
                 return RedirectToAction("Confirmation");
             }
             return View(request);
