@@ -14,11 +14,7 @@ namespace EquipmentManager_Assignment1.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult RequestForm(Request request)
-        //{
 
-        //}
         [HttpPost]
         public IActionResult RequestForm(Request request)
         {
@@ -31,13 +27,11 @@ namespace EquipmentManager_Assignment1.Controllers
             return View(request);
         }
 
-        // GET: /Confirmation
         public IActionResult Confirmation()
         {
             return View();
         }
 
-        // GET: /Requests (for Admin view)
         public IActionResult Requests()
         {
             return View(requests);
