@@ -20,7 +20,7 @@
     <tbody>
         @foreach (var equipment in Model)
         {
-            <tr>
+            <tr class="@(equipment.IsAvailable? "table-success":"table-danger")">
                 <td>@equipment.EquipmentId</td>
                 <td>@equipment.Type</td>
                 <td>@equipment.Description</td>
