@@ -11,6 +11,21 @@ namespace EquipmentManager_Assignment1.Controllers
             return View(equipmentList);
         }
 
+        public IActionResult AvailableEquipment()
+        {
+            var allEquipment = GetAllEquipmentList();
+            var availableEquipment = new List<Equipment>();
+
+            foreach (var equipment in allEquipment)
+            {
+                if (equipment.IsAvailable)
+                {
+                    availableEquipment.Add(equipment);
+                }
+            }
+            return View(availableEquipment);
+        }
+
         private List<Equipment> GetAllEquipmentList()
         {
             return new List<Equipment>
