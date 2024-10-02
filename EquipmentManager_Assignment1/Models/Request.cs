@@ -15,6 +15,7 @@ namespace EquipmentManager_Assignment1.Models
         public string? Email { get; set; }
 
         [Required(ErrorMessage = "Phone is required"), Phone]
+        [RegularExpression(@"\d{3}-\d{3}-\d{4}",ErrorMessage =("Please enter the phone number in correct format."))]
         public string? PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Role is required")]
