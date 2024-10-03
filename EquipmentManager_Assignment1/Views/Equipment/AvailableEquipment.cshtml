@@ -8,21 +8,17 @@
 
 <h2>Available Equipment</h2>
 <table class="table">
-    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var equipment in Model)
+    {
         <tr>
-            <th>Id</th>
-            <th>Type</th>
-            <th>Description</th>
+            <td>@equipment.EquipmentId</td>
+            <td>@equipment.Type</td>
+            <td>@equipment.Description</td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var equipment in Model)
-        {
-            <tr>
-                <td>@equipment.EquipmentId</td>
-                <td>@equipment.Type</td>
-                <td>@equipment.Description</td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>

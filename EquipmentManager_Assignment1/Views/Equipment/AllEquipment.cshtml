@@ -9,23 +9,19 @@
 
 <h2>All Equipment</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Available</th>
+    <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Available</th>
+    </tr>
+    @foreach (var equipment in Model)
+    {
+        <tr class="@(equipment.IsAvailable ? "table-success" : "table-danger")">
+            <td>@equipment.EquipmentId</td>
+            <td>@equipment.Type</td>
+            <td>@equipment.Description</td>
+            <td>@equipment.IsAvailable</td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var equipment in Model)
-        {
-            <tr class="@(equipment.IsAvailable? "table-success":"table-danger")">
-                <td>@equipment.EquipmentId</td>
-                <td>@equipment.Type</td>
-                <td>@equipment.Description</td>
-                <td>@equipment.IsAvailable</td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>
